@@ -1,8 +1,8 @@
 {
-  "homepage": "https://a1--react-app-kanbas-assignment1.netlify.app/",
   "name": "kanbas-react-web-app-cs5610-fa24",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://shurui-kanbas-react-web-app-a1.netlify.app",
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.18.6",
     "@testing-library/jest-dom": "^5.17.0",
