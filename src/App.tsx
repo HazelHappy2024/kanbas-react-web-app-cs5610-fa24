@@ -3,7 +3,7 @@ import React from 'react';
 //import './App.css';
 import Labs from "./Labs";
 import Kanbas from "./Kanbas";
-import {HashRouter, Link, Route, Routes} from "react-router-dom";
+import {HashRouter, Route, Routes} from "react-router-dom";
 
 function App() {
   return (
