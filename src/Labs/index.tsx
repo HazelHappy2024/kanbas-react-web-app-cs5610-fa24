@@ -9,9 +9,9 @@ export default function Labs() {
       <h1>Shurui Liu</h1>
       <h1>Fall2024 CS5610 Section02</h1>
       <h1>Labs</h1>
-      <TOC/>
+      <TOC />
       <Routes>
-        <Route path="/" element={<Navigate to="Lab1" />} />
+        {/*<Route path="/" element={<Navigate to="Lab1" />} />*/}
         <Route path="Lab1" element={<Lab1 />} />
         <Route path="Lab2" element={<Lab2 />} />
         <Route path="Lab3" element={<h2>Lab3</h2>} />
