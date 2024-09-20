@@ -14,7 +14,7 @@ export default function Labs() {
         <li>
           Please Visit My GitHub a1 Branch at{" "}
           <a 
-            href="https://github.com/your-repo-link" 
+            href="https://github.com/HazelHappy2024/kanbas-react-web-app-cs5610-fa24/tree/a1" 
             target="_blank" 
             rel="noopener noreferrer"
           >
