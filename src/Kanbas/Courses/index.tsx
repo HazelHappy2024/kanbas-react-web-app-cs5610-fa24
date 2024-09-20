@@ -28,5 +28,7 @@ export default function Courses() {
         </tr>
       </table>
     </div>
-);}
+  );
+}
+
 
