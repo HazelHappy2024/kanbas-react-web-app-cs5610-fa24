@@ -13,6 +13,7 @@ export default function CoursesNavigation() {
         </Link><br/>
       <Link id="wd-course-grades-link"  to="/Kanbas/Courses/1234/Grades">Grades</Link><br/>
       <Link id="wd-course-people-link"  to="/Kanbas/People">People</Link><br/>
+      <Link id="wd-back-to-landing" to="/Labs">Back to Landing Page</Link><br/>
     </div>
 );}
 
