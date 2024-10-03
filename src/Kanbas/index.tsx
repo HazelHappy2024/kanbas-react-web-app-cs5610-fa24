@@ -2,15 +2,12 @@ import { Routes, Route, Navigate } from "react-router";
 import Account from "./Account";
 import Dashboard from "./Dashboard";
 import KanbasNavigation from "./Navigation";
-import Courses from "./Courses";
-import Assignments from "./Courses/Assignments";
+import Courses from "./Courses";  
 import "./styles.css";
-
 
 export default function Kanbas() {
   return (
-    <div >
-
+    <div>
       <div id="wd-kanbas">
         <KanbasNavigation />
         <div className="wd-main-content-offset p-3">
@@ -18,16 +15,16 @@ export default function Kanbas() {
             <Route path="/" element={<Navigate to="Dashboard" />} />
             <Route path="/Account/*" element={<Account />} />
             <Route path="/Dashboard" element={<Dashboard />} />
+            {/* 导航到 Courses 组件 */}
             <Route path="/Courses/:cid/*" element={<Courses />} />
-            
-            
           </Routes>
         </div>
       </div>
-
     </div>
   );
 }
+
+
 
 
 

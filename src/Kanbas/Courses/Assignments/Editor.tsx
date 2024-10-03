@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 
 export default function AssignmentEditor() {
-  // 使用 useState 来管理表单数据
-  const [assignmentName, setAssignmentName] = useState("A1");
+  const { aid } = useParams(); 
+  const [assignmentName, setAssignmentName] = useState(`Assignment ${aid}`);
   const [description, setDescription] = useState(
     "The assignment is available online. Submit a link to the landing page of your Web application running on Netlify."
   );
