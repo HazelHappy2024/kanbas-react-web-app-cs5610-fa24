@@ -11,7 +11,7 @@ export default function Labs() {
         <li>Shurui Liu 002697084</li>
         <li>Fall2024 CS5610 Section02</li>
         <li>
-          Please Visit My GitHub a1 Branch at{" "}
+          Please Visit My GitHub a2 Branch at{" "}
           <a 
             href="https://github.com/HazelHappy2024/kanbas-react-web-app-cs5610-fa24/tree/a2" 
             target="_blank" 

@@ -4,6 +4,7 @@ import Dashboard from "./Dashboard";
 import KanbasNavigation from "./Navigation";
 import Courses from "./Courses";  
 import "./styles.css";
+import Labs from "../Labs";
 
 export default function Kanbas() {
   return (
@@ -15,8 +16,10 @@ export default function Kanbas() {
             <Route path="/" element={<Navigate to="Dashboard" />} />
             <Route path="/Account/*" element={<Account />} />
             <Route path="/Dashboard" element={<Dashboard />} />
+            <Route path="/Labs" element={<Labs />} />
             {/* 导航到 Courses 组件 */}
             <Route path="/Courses/:cid/*" element={<Courses />} />
+            
           </Routes>
         </div>
       </div>
