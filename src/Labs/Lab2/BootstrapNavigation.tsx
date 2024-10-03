@@ -28,7 +28,7 @@ const BootstrapNavigation = () => {
                 <div className="card"
                     style={{ width: "18rem" }}>
                     <img src="images/stacked.jpg"
-                        className="card-img-top" />
+                        className="card-img-top" alt="Description" />
                     <div className="card-body">
                         <h5 className="card-title">
                             Stacking Starship
