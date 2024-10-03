@@ -8,7 +8,7 @@ export default function Dashboard() {
     { id: 3, title: "CS5500 Software Engineering", description: "Agile Development", year: "2024fall", imgSrc: "/images/agile.jpg", link: "/Kanbas/Courses/CS5500/Home" },
     { id: 4, title: "CS6510 Artificial Intelligence", description: "AI and Machine Learning", year: "2024fall", imgSrc: "/images/ai.jpg", link: "/Kanbas/Courses/CS6510/Home" },
     { id: 5, title: "CS5800 Algorithms", description: "Data Structures and Algorithms", year: "2024fall", imgSrc: "/images/algorithms.jpg", link: "/Kanbas/Courses/CS5800/Home" },
-    { id: 6, title: "CS6200 Operating Systems", description: "Multithreading, Memory Management", year: "2024fall", imgSrc: "/images/os.jpg", link: "/Kanbas/Courses/CS6200/Home" },
+    { id: 6, title: "CS6200 Operating Systems", description: "Memory Management", year: "2024fall", imgSrc: "/images/os.jpg", link: "/Kanbas/Courses/CS6200/Home" },
     { id: 7, title: "CS6650 Distributed Systems", description: "Scalable Systems Design", year: "2024fall", imgSrc: "/images/distributed.jpg", link: "/Kanbas/Courses/CS6650/Home" },
   ];
 
