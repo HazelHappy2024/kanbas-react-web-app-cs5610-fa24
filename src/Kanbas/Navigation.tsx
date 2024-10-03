@@ -13,7 +13,7 @@ export default function KanbasNavigation() {
       className="list-group rounded-0 position-fixed bottom-0 top-0 d-none d-md-block bg-black z-2"
     >
       {/* Northeastern logo */}
-      <a id="wd-neu-link" target="_blank" href="https://www.northeastern.edu/">
+      <a id="wd-neu-link" target="_blank" rel="noopener noreferrer" href="https://www.northeastern.edu/">
         <img src="/images/NEU.png" width="110px" alt="NEU Logo" />  {/* 设置图片宽度为110px，与侧边栏一致 */}
       </a>
 
