@@ -1,4 +1,4 @@
-// import Lab1 from "./Lab1";
+import Lab1 from "./Lab1";
 import { Route, Routes } from "react-router";
 import TOC from "./TOC";
 import Lab2 from "./Lab2";
@@ -13,7 +13,7 @@ export default function Labs() {
         <li>
           Please Visit My GitHub a1 Branch at{" "}
           <a 
-            href="https://github.com/HazelHappy2024/kanbas-react-web-app-cs5610-fa24/tree/a1" 
+            href="https://github.com/HazelHappy2024/kanbas-react-web-app-cs5610-fa24/tree/a2" 
             target="_blank" 
             rel="noopener noreferrer"
             id="wd-github" 
