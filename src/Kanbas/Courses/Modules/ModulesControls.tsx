@@ -1,4 +1,5 @@
 import { FaPlus } from "react-icons/fa"; 
+import { MdDoNotDisturbAlt } from "react-icons/md"; // Importing the unpublish icon
 import GreenCheckmark from "./GreenCheckmark"; 
 import { useState } from "react";
 
@@ -36,12 +37,12 @@ export default function ModulesControls() {
             </li>
             <li>
               <a className="dropdown-item" href="#">
-                <span className="text-danger">Unpublish all modules and items</span>
+                <MdDoNotDisturbAlt /> Unpublish all modules and items
               </a>
             </li>
             <li>
               <a className="dropdown-item" href="#">
-                <span className="text-danger">Unpublish modules only</span>
+                <MdDoNotDisturbAlt /> Unpublish modules only
               </a>
             </li>
           </ul>
@@ -54,5 +55,6 @@ export default function ModulesControls() {
     </div>
   );
 }
+
 
 

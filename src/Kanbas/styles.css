@@ -48,3 +48,20 @@ body * {
     display: flex;
     align-items: center;
 }
+
+/* Add this CSS to your stylesheet */
+
+@media (max-width: 768px) {
+    #wd-course-status {
+        display: none;
+    }
+
+    /* Ensure that the Modules take up the full width when CourseStatus is hidden */
+    #wd-home table {
+        width: 100%;
+    }
+
+    #wd-home table td {
+        width: 100%;
+    }
+}

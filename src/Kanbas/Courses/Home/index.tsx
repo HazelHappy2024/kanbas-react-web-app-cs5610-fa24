@@ -11,16 +11,16 @@ export default function Home() {
             <td valign="top">
               <Modules />
             </td>
-            <td valign="top">
+            <td valign="top" id="course-status-column">
               <CourseStatus />
             </td>
           </tr>
         </tbody>
       </table>
       
-      
       <Link id="wd-back-to-landing" to="/Labs">Back to Landing Page</Link>
     </div>
   );
 }
+
 
