@@ -17,6 +17,8 @@ import FindFunction from "./FindFunction";
 import FindIndexFunction from "./FindIndexFunction";
 import FilterFunction from "./FilterFunction";
 import JsonStringify from "./JsonStringify";
+import House from "./House";
+import TodoList from "./todo/TodoList";
 
 export default function Lab3() { 
   return (
@@ -41,6 +43,8 @@ export default function Lab3() {
       <FindIndexFunction /> {/* 新增 FindIndexFunction 组件 */}
       <FilterFunction /> {/* 新增 FilterFunction 组件 */}
       <JsonStringify /> {/* 新增 JsonStringify 组件 */}
+      <House /> {/* 新增 House 组件 */}
+      <TodoList /> {/* 新增 TodoList 组件 */}
       
     </div>
   ); 
