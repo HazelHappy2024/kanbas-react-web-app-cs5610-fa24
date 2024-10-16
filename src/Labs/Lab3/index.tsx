@@ -26,6 +26,10 @@ import Math from "./Math";
 import DestructingImports from "./DestructingImports";
 import Classes from './Classes';
 import Styles from './Styles';
+import Add from './Add';
+import Square from "./Square";
+import Highlight from "./Highlight";
+
 
 export default function Lab3() { 
   return (
@@ -58,6 +62,14 @@ export default function Lab3() {
       <DestructingImports />
       <Classes />
       <Styles /> {/* 新增 Styles 组件 */}
+      <Add a={3} b={4} /> {/* 新增 Add 组件，传递 a 和 b 参数 */}
+      <h4>Square of 4</h4>
+      <Square>4</Square>
+      <hr />
+      <Highlight>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipitprename eaque illo minus cum, saepe totam vel nihil repellat nemo explicabo excepturi consectetur. Modi omnis minus sequi maiores, provident voluptates.
+      </Highlight>
+
 
       
     </div>
