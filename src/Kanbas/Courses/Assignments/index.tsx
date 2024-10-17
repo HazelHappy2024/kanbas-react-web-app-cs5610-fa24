@@ -1,9 +1,13 @@
 import { FaSearch, FaCheckCircle, FaEllipsisV, FaPlus } from "react-icons/fa";
 import { BsGrid3X3GapFill } from "react-icons/bs";
 import { MdGroupAdd } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom"; // 引入 useParams
+import * as db from "../../Database"; // 假设 assignments 在这个模块中
 
 export default function Assignments() {
+  const { cid } = useParams(); // 获取课程 ID
+  const assignments = db.assignments.filter(assignment => assignment.course === cid); // 筛选与当前课程相关的作业
+
   return (
     <div id="wd-assignments" className="container mt-4">
       {/* 顶部搜索框和按钮 */}
@@ -45,72 +49,36 @@ export default function Assignments() {
 
       {/* 作业列表 */}
       <ul className="list-group">
-        <li className="list-group-item d-flex align-items-center justify-content-between">
-          <div className="d-flex align-items-center">
-            <div className="border-start border-3 border-success me-2"></div>
-            <BsGrid3X3GapFill className="me-2" />
-            <div>
-              <Link to="/Kanbas/Courses/1234/Assignments/1234" className="text-decoration-none">
-                <h6 className="mb-0">A1</h6>
-              </Link>
-              <p className="mb-0 text-muted small">
-                <span className="text-danger">Multiple Modules</span> |
-                Not available until May 6 at 12:00am |
-                Due May 13 at 11:59pm | 100 pts
-              </p>
+        {assignments.map((assignment) => (
+          <li key={assignment._id} className="list-group-item d-flex align-items-center justify-content-between">
+            <div className="d-flex align-items-center">
+              <div className="border-start border-3 border-success me-2"></div>
+              <BsGrid3X3GapFill className="me-2" />
+              <div>
+                <Link
+                  to={`/Kanbas/Courses/${cid}/Assignments/${assignment._id}`} // 使用课程 ID 和作业 ID 构建链接
+                  className="text-decoration-none"
+                >
+                  <h6 className="mb-0">{assignment.title}</h6>
+                </Link>
+                <p className="mb-0 text-muted small">
+                  <span className="text-danger">Multiple Modules</span> |
+                  Not available until May 6 at 12:00am |
+                  Due May 13 at 11:59pm | 100 pts
+                </p>
+              </div>
             </div>
-          </div>
-          <div className="d-flex align-items-center">
-            <FaCheckCircle className="text-success me-2" />
-            <FaEllipsisV />
-          </div>
-        </li>
-
-        <li className="list-group-item d-flex align-items-center justify-content-between">
-          <div className="d-flex align-items-center">
-            <div className="border-start border-3 border-success me-2"></div>
-            <BsGrid3X3GapFill className="me-2" />
-            <div>
-            <Link to="/Kanbas/Courses/1234/Assignments/1234" className="text-decoration-none">
-                <h6 className="mb-0">A2</h6>
-              </Link>
-              <p className="mb-0 text-muted small">
-                <span className="text-danger">Multiple Modules</span> |
-                Not available until May 13 at 12:00am |
-                Due May 20 at 11:59pm | 100 pts
-              </p>
+            <div className="d-flex align-items-center">
+              <FaCheckCircle className="text-success me-2" />
+              <FaEllipsisV />
             </div>
-          </div>
-          <div className="d-flex align-items-center">
-            <FaCheckCircle className="text-success me-2" />
-            <FaEllipsisV />
-          </div>
-        </li>
-
-        <li className="list-group-item d-flex align-items-center justify-content-between">
-          <div className="d-flex align-items-center">
-            <div className="border-start border-3 border-success me-2"></div>
-            <BsGrid3X3GapFill className="me-2" />
-            <div>
-            <Link to="/Kanbas/Courses/1234/Assignments/1234" className="text-decoration-none">
-                <h6 className="mb-0">A3</h6>
-              </Link>
-              <p className="mb-0 text-muted small">
-                <span className="text-danger">Multiple Modules</span> |
-                Not available until May 20 at 12:00am |
-                Due May 27 at 11:59pm | 100 pts
-              </p>
-            </div>
-          </div>
-          <div className="d-flex align-items-center">
-            <FaCheckCircle className="text-success me-2" />
-            <FaEllipsisV />
-          </div>
-        </li>
+          </li>
+        ))}
       </ul>
     </div>
   );
 }
+
 
 
 

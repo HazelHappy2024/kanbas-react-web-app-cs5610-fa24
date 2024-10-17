@@ -29,9 +29,17 @@ import Styles from './Styles';
 import Add from './Add';
 import Square from "./Square";
 import Highlight from "./Highlight";
+import PathParameters from "./PathParameters"; // 导入 PathParameters
+import AddPathParameters from "./AddPathParameters";
+import { Routes, Route, Link } from "react-router-dom";
+
+
+
+
 
 
 export default function Lab3() { 
+  console.log('Hello World!');
   return (
     <div id="wd-lab3"> 
       <h3>Lab 3</h3> 
@@ -71,6 +79,18 @@ export default function Lab3() {
       </Highlight>
 
 
+     
+
+      {/* 添加 Path Parameters 链接 */}
+      <h4>Path Parameters</h4>
+      <Link to="add/1/2">1 + 2</Link> <br />
+      <Link to="add/3/4">3 + 4</Link> <br />
+
+      {/* 配置 PathParameters 路由 */}
+      <Routes>
+        <Route path="/add/:a/:b" element={<AddPathParameters />} />
+      </Routes>
+    
       
     </div>
   ); 

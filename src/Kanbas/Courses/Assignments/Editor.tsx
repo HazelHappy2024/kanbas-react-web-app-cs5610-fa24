@@ -1,234 +1,147 @@
-import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import * as db from "../../Database";
 
 export default function AssignmentEditor() {
-  const { aid } = useParams(); 
-  const [assignmentName, setAssignmentName] = useState(`Assignment ${aid}`);
-  const [description, setDescription] = useState(
-    "The assignment is available online. Submit a link to the landing page of your Web application running on Netlify."
-  );
-  const [points, setPoints] = useState(100);
-  const [assignmentGroup, setAssignmentGroup] = useState("ASSIGNMENTS");
-  const [displayGradeAs, setDisplayGradeAs] = useState("Percentage");
-  const [submissionType, setSubmissionType] = useState("Online");
-  const [entryOption, setEntryOption] = useState("Website URL");
-  const [assignTo, setAssignTo] = useState("Everyone");
-  const [dueDate, setDueDate] = useState("2024-05-13");
-  const [availableFrom, setAvailableFrom] = useState("2024-05-06");
-  const [availableUntil, setAvailableUntil] = useState("2024-05-20");
+  const { cid, aid } = useParams();
+  console.log('Course ID:', cid, 'Assignment ID:', aid);
+  
+  // 查找对应的作业
+  const assignment = db.assignments.find(a => a._id === aid);
+  console.log('Found assignment:', assignment);
+
+  // 如果作业未找到，显示错误信息
+  if (!assignment) return <p>Assignment not found</p>;
 
   return (
-    <div className="container mt-4">
-      <h3>Assignment Editor</h3>
-
-      {/* Assignment Name */}
+    <div className="container mt-3">
+      {/* 显示作业名称 */}
       <div className="mb-3">
-        <label htmlFor="assignmentName" className="form-label">
-          Assignment Name
-        </label>
-        <input
-          type="text"
-          className="form-control"
-          id="assignmentName"
-          value={assignmentName}
-          onChange={(e) => setAssignmentName(e.target.value)}
-        />
+        <label htmlFor="wd-name" className="form-label ">Assignment Name</label>
+        <input type="text" className="form-control" id="wd-name" placeholder="Enter assignment name" defaultValue={assignment.title} />
       </div>
 
-      {/* Description */}
+      {/* 显示作业描述 */}
       <div className="mb-3">
-        <label htmlFor="description" className="form-label">
-          Description
-        </label>
-        <textarea
-          className="form-control"
-          id="description"
-          rows= {4}
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
+        <label htmlFor="wd-description" className="form-label">Assignment Description</label>
+        <textarea className="form-control" id="wd-description" rows={10} defaultValue={assignment.description ? assignment.description : ''} />
       </div>
 
-      {/* Points, Assignment Group, Display Grade as */}
-      <div className="row mb-3">
-        <div className="col-md-4">
-          <label htmlFor="points" className="form-label">
-            Points
-          </label>
-          <input
-            type="number"
-            className="form-control"
-            id="points"
-            value={points}
-            onChange={(e) => setPoints(Number(e.target.value))}
-
-          />
+      {/* 显示分数 */}
+      <div className="mb-3 row align-items-start">
+        <div className="col-3 text-end">
+          <label htmlFor="wd-points" className="form-label pt-1">Points</label>
         </div>
-        <div className="col-md-4">
-          <label htmlFor="assignmentGroup" className="form-label">
-            Assignment Group
-          </label>
-          <select
-            className="form-control"
-            id="assignmentGroup"
-            value={assignmentGroup}
-            onChange={(e) => setAssignmentGroup(e.target.value)}
-          >
-            <option>ASSIGNMENTS</option>
-            <option>QUIZZES</option>
-          </select>
+        <div className="col">
+          <input type="text" className="form-control" id="wd-points" defaultValue={assignment.points} />
         </div>
-        <div className="col-md-4">
-          <label htmlFor="displayGradeAs" className="form-label">
-            Display Grade as
-          </label>
-          <select
-            className="form-control"
-            id="displayGradeAs"
-            value={displayGradeAs}
-            onChange={(e) => setDisplayGradeAs(e.target.value)}
-          >
-            <option>Percentage</option>
-            <option>Letter Grade</option>
-            <option>Pass/Fail</option>
+      </div>
+      
+      {/* 作业组 */}
+      <div className="mb-3 row align-items-start">
+        <div className="col-3 text-end">
+          <label htmlFor="wd-group" className="form-label pt-1">Assignment Group</label>
+        </div>
+        <div className='col'>
+          <select className="form-control" id="wd-group">
+            <option value="assignments">ASSIGNMENTS</option>
+            <option value="exams">EXAMS</option>
+            <option value="quizzes">QUIZZES</option>
           </select>
         </div>
       </div>
 
-      {/* Submission Type */}
-      <div className="mb-3">
-        <label htmlFor="submissionType" className="form-label">
-          Submission Type
-        </label>
-        <select
-          className="form-control"
-          id="submissionType"
-          value={submissionType}
-          onChange={(e) => setSubmissionType(e.target.value)}
-        >
-          <option>Online</option>
-          <option>Oncampus</option>
-        </select>
-      </div>
-
-      {/* Online Entry Options */}
-      <div className="mb-3">
-        <label className="form-label">Online Entry Options</label>
-        <div className="form-check">
-          <input
-            className="form-check-input"
-            type="radio"
-            id="textEntry"
-            name="entryOption"
-            value="Text Entry"
-            checked={entryOption === "Text Entry"}
-            onChange={(e) => setEntryOption(e.target.value)}
-          />
-          <label className="form-check-label" htmlFor="textEntry">
-            Text Entry
-          </label>
+      {/* 显示成绩类型 */}
+      <div className="mb-3 row align-items-start">
+        <div className="col-3 text-end">
+          <label htmlFor="wd-display-grade-as" className="form-label pt-1">Display Grade as</label>
         </div>
-        <div className="form-check">
-          <input
-            className="form-check-input"
-            type="radio"
-            id="websiteUrl"
-            name="entryOption"
-            value="Website URL"
-            checked={entryOption === "Website URL"}
-            onChange={(e) => setEntryOption(e.target.value)}
-          />
-          <label className="form-check-label" htmlFor="websiteUrl">
-            Website URL
-          </label>
-        </div>
-        {/* 其他选项 */}
-        <div className="form-check">
-          <input
-            className="form-check-input"
-            type="radio"
-            id="mediaRecordings"
-            name="entryOption"
-            value="Media Recordings"
-            onChange={(e) => setEntryOption(e.target.value)}
-          />
-          <label className="form-check-label" htmlFor="mediaRecordings">
-            Media Recordings
-          </label>
-        </div>
-        <div className="form-check">
-          <input
-            className="form-check-input"
-            type="radio"
-            id="fileUpload"
-            name="entryOption"
-            value="File Upload"
-            onChange={(e) => setEntryOption(e.target.value)}
-          />
-          <label className="form-check-label" htmlFor="fileUpload">
-            File Upload
-          </label>
+        <div className='col'>
+          <select className="form-control" id="wd-display-grade-as">
+            <option value="points">Points</option>
+            <option value="percentage">Percentage</option>
+            <option value="letter-grade">Letter Grade</option>
+          </select>
         </div>
       </div>
 
-      {/* Assign to, Due Date, Available Dates */}
-      <div className="row mb-3">
-        <div className="col-md-4">
-          <label htmlFor="assignTo" className="form-label">
-            Assign to
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="assignTo"
-            value={assignTo}
-            onChange={(e) => setAssignTo(e.target.value)}
-          />
+      {/* 提交类型 */}
+      <div className="row align-items-start mb-3">
+        <div className='col-3 text-end'>
+          <label htmlFor="wd-submission-type" className="form-label pt-1">Submission Type</label>
         </div>
-        <div className="col-md-4">
-          <label htmlFor="dueDate" className="form-label">
-            Due
-          </label>
-          <input
-            type="date"
-            className="form-control"
-            id="dueDate"
-            value={dueDate}
-            onChange={(e) => setDueDate(e.target.value)}
-          />
-        </div>
-        <div className="col-md-4">
-          <label htmlFor="availableFrom" className="form-label">
-            Available from
-          </label>
-          <input
-            type="date"
-            className="form-control"
-            id="availableFrom"
-            value={availableFrom}
-            onChange={(e) => setAvailableFrom(e.target.value)}
-          />
-        </div>
-        <div className="col-md-4">
-          <label htmlFor="availableUntil" className="form-label">
-            Until
-          </label>
-          <input
-            type="date"
-            className="form-control"
-            id="availableUntil"
-            value={availableUntil}
-            onChange={(e) => setAvailableUntil(e.target.value)}
-          />
+        <div className='col border p-3'>
+          <div className='mb-3'>
+            <select className="form-control" id="wd-submission-type">
+              <option value="online">Online</option>
+              <option value="on-paper">On Paper</option>
+            </select>
+          </div>
+
+          {/* 在线提交选项 */}
+          <fieldset className="border p-2">
+            <legend className="w-auto p-2"><strong>Online Entry Options</strong></legend>
+            <div className="form-check mb-3">
+              <input className="form-check-input" type="checkbox" id="wd-text-entry" />
+              <label className="form-check-label" htmlFor="wd-text-entry">
+                Text Entry
+              </label>
+            </div>
+            <div className="form-check mb-3">
+              <input className="form-check-input" type="checkbox" id="wd-website-url" defaultChecked />
+              <label className="form-check-label" htmlFor="wd-website-url">
+                Website URL
+              </label>
+            </div>
+            <div className="form-check mb-3">
+              <input className="form-check-input" type="checkbox" id="wd-media-recordings" />
+              <label className="form-check-label" htmlFor="wd-media-recordings">
+                Media Recordings
+              </label>
+            </div>
+            <div className="form-check mb-3">
+              <input className="form-check-input" type="checkbox" id="wd-file-upload" />
+              <label className="form-check-label" htmlFor="wd-file-upload">
+                File Uploads
+              </label>
+            </div>
+          </fieldset>
         </div>
       </div>
 
-      {/* Cancel 和 Save 按钮 */}
-      <div className="d-flex justify-content-end">
-        <button className="btn btn-secondary me-2">Cancel</button>
-        <button className="btn btn-danger">Save</button>
+      {/* Assign To、Due Date、Available Dates */}
+      <div className="row align-items-start mb-3">
+        <div className="col-3 text-end">
+          <label htmlFor="wd-display-assign" className="form-label pt-1">Assign</label>
+        </div>
+        <div className='col border p-3'>
+          <div className="mb-3">
+            <label htmlFor="wd-assign-to" className="form-label mb-0"><strong>Assign To</strong></label>
+            <input type="text" className="form-control" id="wd-assign-to" defaultValue="Everyone" />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="wd-due-date" className="form-label mb-0"><strong>Due Date</strong></label>
+            <input type="date" className="form-control" id="wd-due-date" defaultValue={assignment.dueDate} />
+          </div>
+          <div className='row mb-3'>
+            <div className="col-md-6">
+              <label htmlFor="wd-available-from" className="form-label mb-0" ><strong>Available From</strong></label>
+              <input type="date" className="form-control" id="wd-available-from" defaultValue={assignment.availableFrom} />
+            </div>
+            <div className="col-md-6">
+              <label htmlFor="wd-available-until" className="form-label mb-0" ><strong>Until</strong></label>
+              <input type="date" className="form-control" id="wd-available-until" defaultValue={assignment.availableUntil} />
+            </div>
+          </div>
+        </div> 
+      </div>
+
+      {/* 保存和取消按钮 */}
+      <div className="text-end mt-3">
+        <Link to={`/Kanbas/Courses/${cid}/Assignments`} className="btn btn-secondary me-2">Cancel</Link>
+        <Link to={`/Kanbas/Courses/${cid}/Assignments`} className="btn btn-success" style={{ background: 'red' }}>Save</Link>
       </div>
     </div>
   );
 }
+
 

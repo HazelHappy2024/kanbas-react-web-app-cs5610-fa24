@@ -1,33 +1,38 @@
-import { Link } from "react-router-dom";
-import "../styles.css"; // 确保已导入正确的样式
+import { Link, useParams, useLocation } from "react-router-dom";
 
 export default function CoursesNavigation() {
+  const { cid } = useParams(); // 获取当前课程的ID
+  const { pathname } = useLocation(); // 获取当前路径
+
+  // 定义导航链接的数组
+  const links = [
+    { label: "Home", path: `/Kanbas/Courses/${cid}/Home` },
+    { label: "Modules", path: `/Kanbas/Courses/${cid}/Modules` },
+    { label: "Piazza", path: `/Kanbas/Courses/${cid}/Piazza` },
+    { label: "Zoom", path: `/Kanbas/Courses/${cid}/Zoom` },
+    { label: "Assignments", path: `/Kanbas/Courses/${cid}/Assignments` },
+    { label: "Quizzes", path: `/Kanbas/Courses/${cid}/Quizzes` },
+    { label: "Grades", path: `/Kanbas/Courses/${cid}/Grades` },
+    { label: "People", path: `/Kanbas/Courses/${cid}/People` },
+  ];
+
   return (
-    <div id="wd-courses-navigation" className="wd list-group fs-5 rounded-0">
-      <Link to="Home" id="wd-course-home-link" className="list-group-item border border-0">
-        Home
-      </Link>
-      <Link to="Modules" id="wd-course-modules-link" className="list-group-item text-danger border border-0">
-        Modules
-      </Link>
-      <Link to="Piazza" id="wd-course-piazza-link" className="list-group-item text-danger border border-0">
-        Piazza
-      </Link>
-      <Link to="Zoom" id="wd-course-zoom-link" className="list-group-item text-danger border border-0">
-        Zoom
-      </Link>
-      <Link to="Assignments" id="wd-course-assignments-link" className="list-group-item text-danger border border-0">
-        Assignments
-      </Link>
-      <Link to="Quizzes" id="wd-course-quizzes-link" className="list-group-item text-danger border border-0">
-        Quizzes
-      </Link>
-      <Link to="People" id="wd-course-people-link" className="list-group-item text-danger border border-0">
-        People
-      </Link>
-    </div>
+    <ul className="list-group">
+      {links.map((link) => (
+        <Link
+          key={link.path}
+          to={link.path}
+          className={`list-group-item bg-black text-center border-0 
+            ${pathname.includes(link.path) ? "text-danger bg-white" : "text-red bg-white "}`}
+        >
+          {link.label}
+        </Link>
+      ))}
+    </ul>
   );
 }
+
+
 
 
 

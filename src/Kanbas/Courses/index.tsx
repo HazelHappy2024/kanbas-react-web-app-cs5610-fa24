@@ -1,22 +1,39 @@
+import { Navigate, Route, Routes, useParams, useLocation, Link } from "react-router-dom"; // 加入 Link
 import CoursesNavigation from "./Navigation";
-import { Route, Routes } from "react-router";
 import Modules from "./Modules/ index";
 import Home from "./Home";
 import Assignments from "./Assignments";
 import PeopleTable from "./People/Table";
 import AssignmentEditor from "./Assignments/Editor";
+import { courses } from "../Database"; // 导入课程数据
+import { FaAlignJustify } from "react-icons/fa6";
 
 export default function Courses() {
+  const { cid } = useParams(); // 获取课程的 ID
+  const { pathname } = useLocation(); // 获取当前路径
+
+  // 根据 cid 从 courses 数据中查找匹配的课程
+  const course = courses.find((course) => course._id === cid);
+
+  // 获取当前页面的名称，如 Home, Modules 等
+  const currentPage = pathname.split("/")[3]; // 例如: Home, Modules, Assignments...
+
   return (
     <div id="wd-courses">
-      <h2 className="text-danger">Course 1234</h2> 
-      <hr />
+      {/* 动态显示课程名称和当前页面 */}
+      <h2 className="text-danger">
+        <FaAlignJustify className="me-4 fs-4 mb-1" />
+        {course && course.name} &gt; {pathname.split("/")[4]}
+      </h2>
 
+      {/* 页面布局，带有导航和内容区域 */}
       <div className="d-flex">
+        {/* 课程导航 */}
         <div className="d-none d-md-block">
-          <CoursesNavigation />
+          <CoursesNavigation /> {/* 渲染导航 */}
         </div>
 
+        {/* 动态渲染课程的不同部分（Modules, Assignments, People等） */}
         <div className="flex-fill">
           <Routes>
             <Route path="Home" element={<Home />} />
@@ -25,13 +42,15 @@ export default function Courses() {
             <Route path="Assignments/:" element={<AssignmentEditor />} />
             <Route path="Assignments/:aid" element={<AssignmentEditor />} />
             <Route path="People" element={<PeopleTable />} />
-            {/* Add other routes here as needed */}
+            <Route path="*" element={<Navigate to="Home" />} /> {/* 默认路由 */}
           </Routes>
         </div>
       </div>
     </div>
   );
 }
+
+
 
 
 
