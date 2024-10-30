@@ -65,3 +65,17 @@ body * {
         width: 100%;
     }
 }
+
+.wd-green-border {
+    border-left: 3px solid green !important;
+}
+
+.assignment-header {
+    background-color: #f1f3f5; 
+    padding: 6px 8px; 
+    border-bottom: none; 
+}
+
+
+
+

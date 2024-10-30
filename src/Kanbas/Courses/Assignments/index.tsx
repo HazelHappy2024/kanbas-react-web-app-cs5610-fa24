@@ -1,4 +1,4 @@
-import { FaSearch, FaCheckCircle, FaEllipsisV, FaPlus } from "react-icons/fa";
+import { FaSearch, FaCheckCircle, FaEllipsisV, FaPlus, FaRegEdit} from "react-icons/fa";
 import { BsGrid3X3GapFill } from "react-icons/bs";
 import { MdGroupAdd } from "react-icons/md";
 import { Link, useParams } from "react-router-dom"; // 引入 useParams
@@ -37,7 +37,7 @@ export default function Assignments() {
       </div>
 
       {/* 40% of Total + 图标和更多选项 */}
-      <div className="d-flex justify-content-between align-items-center mb-2">
+      <div className="d-flex justify-content-between align-items-center mb-0 assignment-header" >
         <h5 className="fw-bold">ASSIGNMENTS</h5>
         <div className="d-flex align-items-center">
           <div className="badge bg-light text-dark d-flex align-items-center">
@@ -51,10 +51,11 @@ export default function Assignments() {
       {/* 作业列表 */}
       <ul className="list-group">
         {assignments.map((assignment) => (
-          <li key={assignment._id} className="list-group-item d-flex align-items-center justify-content-between">
+          <li key={assignment._id} className="list-group-item d-flex align-items-center justify-content-between wd-green-border">
             <div className="d-flex align-items-center">
               <div className="border-start border-3 border-success me-2"></div>
               <BsGrid3X3GapFill className="me-2" />
+              <FaRegEdit className="me-2 text-success" style={{ color: "green" }} />
               <div>
                 <Link
                   to={`/Kanbas/Courses/${cid}/Assignments/${assignment._id}`} 
