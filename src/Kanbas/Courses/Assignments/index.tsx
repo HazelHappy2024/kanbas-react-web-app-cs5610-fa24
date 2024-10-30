@@ -2,11 +2,12 @@ import { FaSearch, FaCheckCircle, FaEllipsisV, FaPlus } from "react-icons/fa";
 import { BsGrid3X3GapFill } from "react-icons/bs";
 import { MdGroupAdd } from "react-icons/md";
 import { Link, useParams } from "react-router-dom"; // 引入 useParams
-import * as db from "../../Database"; // 假设 assignments 在这个模块中
+import * as db from "../../Database"; 
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Assignments() {
-  const { cid } = useParams(); // 获取课程 ID
-  const assignments = db.assignments.filter(assignment => assignment.course === cid); // 筛选与当前课程相关的作业
+  const { cid } = useParams(); 
+  const assignments = db.assignments.filter(assignment => assignment.course === cid); 
 
   return (
     <div id="wd-assignments" className="container mt-4">
@@ -56,7 +57,7 @@ export default function Assignments() {
               <BsGrid3X3GapFill className="me-2" />
               <div>
                 <Link
-                  to={`/Kanbas/Courses/${cid}/Assignments/${assignment._id}`} // 使用课程 ID 和作业 ID 构建链接
+                  to={`/Kanbas/Courses/${cid}/Assignments/${assignment._id}`} 
                   className="text-decoration-none"
                 >
                   <h6 className="mb-0">{assignment.title}</h6>
