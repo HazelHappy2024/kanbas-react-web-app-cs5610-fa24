@@ -3,10 +3,13 @@ import * as db from "../../Database";  // Import the database where modules are 
 import ModuleControlButtons from "./ ModuleControlButtons";  // Import the module control buttons
 import LessonControlButtons from "./LessonControlButtons";  // Import lesson control buttons
 import { BsGripVertical } from "react-icons/bs";  // Import icon for drag handle
+import React, { useState } from "react";
+
 
 export default function Modules() {
   const { cid } = useParams();  // Get the course ID from the URL
-  const modules = db.modules;  // Get all the modules from the database
+  const [modules, setModules] = useState<any[]>(db.modules);
+
 
   return (
     <ul id="wd-modules" className="list-group rounded-0">

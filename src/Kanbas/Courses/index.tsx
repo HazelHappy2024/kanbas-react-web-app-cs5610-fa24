@@ -5,15 +5,15 @@ import Home from "./Home";
 import Assignments from "./Assignments";
 import PeopleTable from "./People/Table";
 import AssignmentEditor from "./Assignments/Editor";
-import { courses } from "../Database"; // 导入课程数据
 import { FaAlignJustify } from "react-icons/fa6";
 
-export default function Courses() {
+export default function Courses ({ courses }: { courses: any[]; }) {
   const { cid } = useParams(); // 获取课程的 ID
+  const course = courses.find((course) => course._id === cid);
+  
   const { pathname } = useLocation(); // 获取当前路径
 
-  // 根据 cid 从 courses 数据中查找匹配的课程
-  const course = courses.find((course) => course._id === cid);
+
 
   // 获取当前页面的名称，如 Home, Modules 等
   const currentPage = pathname.split("/")[3]; // 例如: Home, Modules, Assignments...
