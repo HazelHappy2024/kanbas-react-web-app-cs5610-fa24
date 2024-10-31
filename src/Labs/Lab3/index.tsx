@@ -32,6 +32,7 @@ import Highlight from "./Highlight";
 import PathParameters from "./PathParameters"; // 导入 PathParameters
 import AddPathParameters from "./AddPathParameters";
 import { Routes, Route, Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 
 
@@ -40,9 +41,18 @@ import { Routes, Route, Link } from "react-router-dom";
 
 export default function Lab3() { 
   console.log('Hello World!');
+  const { todos } = useSelector((state: any) => state.todosReducer);
   return (
     <div id="wd-lab3"> 
       <h3>Lab 3</h3> 
+      <ul className="list-group">
+        {todos.map((todo: any) => (
+          <li className="list-group-item" key={todo.id}>
+            {todo.title}
+          </li>
+        ))}
+      </ul>
+      <hr />
       <VariablesAndConstants/>
       <VariableTypes /> {/* 新增 VariableTypes 组件 */}
       <BooleanVariables /> {/* 新增 BooleanVariables 组件 */}
@@ -66,7 +76,7 @@ export default function Lab3() {
       <TodoList /> {/* 新增 TodoList 组件 */}
       <Spreading /> {/* 新增 Spreading 组件 */}
       <Destructing /> {/* 添加 Destructing 组件 */} 
-      <FunctionDestructing /> {/* 添加 FunctionDestructing 组件 */}
+      <FunctionDestructing /> 
       <DestructingImports />
       <Classes />
       <Styles /> {/* 新增 Styles 组件 */}
