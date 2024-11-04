@@ -11,13 +11,18 @@ body * {
     #wd-kanbas .wd-main-content-offset {
         padding-left: 140px !important;
     }
-}
-
+} 
 .list-group.wd>.list-group-item.active {
-    color: black;
+    color:  black;
     background-color: white;
     border-left: 3px solid black !important;
 }
+
+
+
+
+
+
 
 .btn-secondary {
     --bs-btn-color: #000 !important;
@@ -75,6 +80,8 @@ body * {
     padding: 6px 8px; 
     border-bottom: none; 
 }
+
+
 
 
 

@@ -4,21 +4,15 @@ import { Link } from "react-router-dom";  // 新增导入Link
 
 export default function Home() {
   return (
-    <div id="wd-home">
-      <table>
-        <tbody>
-          <tr>
-            <td valign="top">
-              <Modules />
-            </td>
-            <td valign="top" id="course-status-column">
-              <CourseStatus />
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      
-      <Link id="wd-back-to-landing" to="/Labs">Back to Landing Page</Link>
+    <div className="d-flex" id="wd-home">
+      <div className="flex-fill">
+        <Modules />
+        <Link id="wd-back-to-landing" to="/Labs">Back to Landing Page</Link>
+      </div>
+      <div className="d-none d-md-block">
+        <CourseStatus />
+
+      </div>
     </div>
   );
 }

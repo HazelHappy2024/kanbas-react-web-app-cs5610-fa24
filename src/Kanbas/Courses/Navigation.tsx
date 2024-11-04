@@ -17,7 +17,7 @@ export default function CoursesNavigation() {
   ];
 
   return (
-    <ul className="list-group">
+    <ul className="wd list-group fs-5 rounded-0">
       {links.map((link) => (
         <Link
           key={link.path}
