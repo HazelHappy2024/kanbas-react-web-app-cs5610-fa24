@@ -7,13 +7,15 @@ body * {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+
 @media (min-width: 768px) {
     #wd-kanbas .wd-main-content-offset {
         padding-left: 140px !important;
     }
-} 
+}
+
 .list-group.wd>.list-group-item.active {
-    color:  black;
+    color: black;
     background-color: white;
     border-left: 3px solid black !important;
 }
@@ -36,12 +38,19 @@ body * {
 }
 
 .list-group-item {
+    max-width: none !important;
     --bs-list-group-border-color: gray;
 }
 
 .wd-lesson {
     border-left: 3px solid green !important;
 }
+
+
+
+
+
+
 
 
 #wd-people-table .table {
@@ -54,35 +63,8 @@ body * {
     align-items: center;
 }
 
-/* Add this CSS to your stylesheet */
-
-@media (max-width: 768px) {
-    #wd-course-status {
-        display: none;
-    }
-
-    /* Ensure that the Modules take up the full width when CourseStatus is hidden */
-    #wd-home table {
-        width: 100%;
-    }
-
-    #wd-home table td {
-        width: 100%;
-    }
-}
-
-.wd-green-border {
-    border-left: 3px solid green !important;
-}
-
-.assignment-header {
-    background-color: #f1f3f5; 
-    padding: 6px 8px; 
-    border-bottom: none; 
-}
 
 
 
 
-
-
+  

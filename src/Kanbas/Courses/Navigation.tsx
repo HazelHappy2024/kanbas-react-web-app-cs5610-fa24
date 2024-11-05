@@ -1,4 +1,5 @@
 import { Link, useParams, useLocation } from "react-router-dom";
+import "../styles.css"; 
 
 export default function CoursesNavigation() {
   const { cid } = useParams(); // 获取当前课程的ID
@@ -17,16 +18,17 @@ export default function CoursesNavigation() {
   ];
 
   return (
-    <ul className="wd list-group fs-5 rounded-0">
+    <ul className="wd list-group fs-5 rounded-0 d-none d-lg-block">
       {links.map((link) => (
         <Link
-          key={link.path}
+        key={link.path}
           to={link.path}
           className={`list-group-item bg-black text-center border-0 
             ${pathname.includes(link.path) ? "text-danger bg-white" : "text-red bg-white "}`}
         >
           {link.label}
         </Link>
+        
       ))}
     </ul>
   );
