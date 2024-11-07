@@ -55,14 +55,13 @@ export default function Assignments() {
             <div className="d-flex align-items-center">
               <div className="border-start border-3 border-success me-2"></div>
               <BsGrid3X3GapFill className="me-2" />
-              <FaRegEdit className="me-2 text-success" style={{ color: "green" }} />
+              <Link to={`/Kanbas/Courses/${cid}/Assignments/${assignment._id}`}>
+  <FaRegEdit className="me-2 text-success" style={{ color: "green" }} />
+</Link>
+              
               <div>
-                <Link
-                  to={`/Kanbas/Courses/${cid}/Assignments/${assignment._id}`} 
-                  className="text-decoration-none"
-                >
                   <h6 className="mb-0">{assignment.title}</h6>
-                </Link>
+              
                 <p className="mb-0 text-muted small">
                   <span className="text-danger">Multiple Modules</span> |
                   Not available until May 6 at 12:00am |
