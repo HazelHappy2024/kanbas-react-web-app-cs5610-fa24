@@ -4,9 +4,12 @@ import { MdGroupAdd } from "react-icons/md";
 import { Link, useParams } from "react-router-dom"; // 引入 useParams
 import * as db from "../../Database"; 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useSelector } from "react-redux";
+
 
 export default function Assignments() {
   const { cid } = useParams(); 
+  const { currentUser } = useSelector((state: any) => state.accountReducer); 
   const assignments = db.assignments.filter(assignment => assignment.course === cid); 
 
   return (
@@ -25,6 +28,7 @@ export default function Assignments() {
             aria-describedby="search-icon"
           />
         </div>
+        {currentUser.role === "FACULTY" && (
         <div>
           <button className="btn btn-outline-secondary me-2">
             <MdGroupAdd className="me-1" />
@@ -34,6 +38,7 @@ export default function Assignments() {
             +Assignment
           </button>
         </div>
+        )}
       </div>
 
       {/* 40% of Total + 图标和更多选项 */}
@@ -55,9 +60,10 @@ export default function Assignments() {
             <div className="d-flex align-items-center">
               <div className="border-start border-3 border-success me-2"></div>
               <BsGrid3X3GapFill className="me-2" />
-              <Link to={`/Kanbas/Courses/${cid}/Assignments/${assignment._id}`}>
+
+              {currentUser.role === "FACULTY" && (<Link to={`/Kanbas/Courses/${cid}/Assignments/${assignment._id}`}>
   <FaRegEdit className="me-2 text-success" style={{ color: "green" }} />
-</Link>
+</Link>)}
               
               <div>
                   <h6 className="mb-0">{assignment.title}</h6>

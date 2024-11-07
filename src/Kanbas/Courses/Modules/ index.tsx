@@ -5,8 +5,7 @@ import ModuleControlButtons from "./ ModuleControlButtons";  // Import the modul
 import LessonControlButtons from "./LessonControlButtons";  // Import lesson control buttons
 import { BsGripVertical } from "react-icons/bs";  // Import icon for drag handle
 import ModulesControls from "./ModulesControls";
-import { addModule, editModule, updateModule, deleteModule }
-  from "./reducer";
+import { addModule, editModule, updateModule, deleteModule } from "./reducer";
 import { useSelector, useDispatch } from "react-redux";
 
 
@@ -14,16 +13,17 @@ export default function Modules() {
   const { cid } = useParams();  // Get the course ID from the URL
   const [moduleName, setModuleName] = useState("");
   const { modules } = useSelector((state: any) => state.modulesReducer);
+  const { currentUser } = useSelector((state: any) => state.accountReducer);  // 获取当前用户
   const dispatch = useDispatch();
 
 
   return (
     <div className="wd-modules">
-      <ModulesControls moduleName={moduleName} setModuleName={setModuleName}
+      {currentUser.role === "FACULTY" && ( <ModulesControls moduleName={moduleName} setModuleName={setModuleName}
         addModule={() => {
           dispatch(addModule({ name: moduleName, course: cid }));
           setModuleName("");
-        }} />
+        }} />)}
       <br /><br /><br />
       <ul  className="mt-2 list-group rounded-0 w-100">
         

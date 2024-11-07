@@ -20,6 +20,8 @@ export default function Dashboard(
     <div className="p-4" id="wd-dashboard">
       <h1 id="wd-dashboard-title">Dashboard</h1> <hr />
 
+      {currentUser.role === "FACULTY" && (
+        <>     
       <h5>New Course
         <button className="btn btn-primary float-end"
           id="wd-add-new-course-click"
@@ -37,6 +39,8 @@ export default function Dashboard(
         onChange={(e) => setCourse({ ...course, description: e.target.value })} />
 
       <hr />
+      </>
+      )} 
 
       <h2 id="wd-dashboard-published">Published Courses ({courses.length})</h2> <hr />
       <div className="row" id="wd-dashboard-courses">
