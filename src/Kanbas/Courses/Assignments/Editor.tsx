@@ -8,6 +8,7 @@ export default function AssignmentEditor() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { assignments } = useSelector((state: any) => state.assignmentsReducer);
+  
 
   const [assignment, setAssignment] = useState<any>({
     title: "",
@@ -33,8 +34,10 @@ export default function AssignmentEditor() {
   const handleSave = () => {
     if (aid) {
       dispatch(updateAssignment(assignment));
+      console.log("Update assignment:", assignment);
     } else {
       dispatch(addAssignment(assignment));
+      console.log("Add assignment:", assignment);
     }
     navigate(`/Kanbas/Courses/${cid}/Assignments`);
   };
