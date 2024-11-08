@@ -21,7 +21,8 @@ export default function AssignmentEditor() {
   });
 
   useEffect(() => {
-    if (aid) {
+    console.log("aid:", aid);
+    if (aid && aid !== "new") {
       const existingAssignment = assignments.find(
         (a: any) => a._id === aid && a.course === cid
       );
@@ -30,9 +31,9 @@ export default function AssignmentEditor() {
       }
     }
   }, [aid, assignments, cid]);
-
+  
   const handleSave = () => {
-    if (aid) {
+    if (aid && aid !== "new") {
       dispatch(updateAssignment(assignment));
       console.log("Update assignment:", assignment);
     } else {
