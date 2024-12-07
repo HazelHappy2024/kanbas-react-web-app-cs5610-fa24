@@ -1,0 +1,85 @@
+import { Link } from "react-router-dom";
+import { useLocation } from "react-router";
+export default function TOC() {
+  const { pathname } = useLocation();
+  return (
+    <ul className="nav nav-pills">
+      <li className="nav-item">
+        <a id="wd-a" href="#/Labs" className="nav-link">
+          Labs
+        </a>
+      </li>
+      <li className="nav-item">
+        <a id="wd-a1" href="#/Labs/Lab1"
+          className={`nav-link ${pathname.includes("Lab1") ? "active" : ""}`}>
+          Lab 1
+        </a>
+      </li>
+      <li className="nav-item">
+        <a id="wd-a2" href="#/Labs/Lab2"
+          className={`nav-link ${pathname.includes("Lab2") ? "active" : ""}`}>
+          Lab 2
+        </a>
+      </li>
+      <li className="nav-item">
+        <a id="wd-a3" href="#/Labs/Lab3"
+          className={`nav-link ${pathname.includes("Lab3") ? "active" : ""}`}>
+          Lab 3
+        </a>
+      </li>
+      <li className="nav-item">
+        <Link
+          className={`nav-link ${pathname.includes("Lab4") ? "active" : ""}`}
+          id = "wd-a4"
+          to="/Labs/Lab4"
+        >
+          Lab4
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link
+          className={`nav-link ${pathname.includes("Lab5") ? "active" : ""}`}
+          id = "wd-a5"
+          to="/Labs/Lab5"
+        >
+          Lab5
+        </Link>
+      </li>
+      <li className="nav-item">
+        <a id="wd-k" href="#/Kanbas" className="nav-link">
+          Kanbas
+        </a>
+      </li>
+      <li className="nav-item">
+        <a id="wd-github" href="https://github.com/HazelHappy2024/kanbas-react-web-app-cs5610-fa24/tree/a3" className="nav-link">
+          My GitHub
+        </a>
+      </li>
+
+      <li className="nav-item">
+        <a
+          id="wd-github-kanbas"
+          href="https://github.com/HazelHappy2024/kanbas-node-server-app-cs5610-fall/tree/main"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="nav-link"
+        >
+          GitHub: Kanbas Node Server
+        </a>
+      </li>
+      <li className="nav-item">
+        <a
+          id="wd-heroku-kanbas"
+          href="https://kanbas-node-server-app-cs5610-289f42239723.herokuapp.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="nav-link"
+        >
+          Heroku: Kanbas Node Server
+        </a>
+      </li>
+    </ul>
+  );
+}
+
+  
