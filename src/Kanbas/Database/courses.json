@@ -8,7 +8,7 @@
     "department": "D123",
     "credits": 4,
     "description": "This course provides an in-depth study of the fundamentals of rocket propulsion, covering topics such as propulsion theory, engine types, fuel chemistry, and the practical applications of rocket technology.",
-    "imgSrc": "/images/rocket.jpg"
+    "image": "/images/rocket.jpg"
   },
   {
     "_id": "RS102",
@@ -19,7 +19,7 @@
     "department": "D123",
     "credits": 3,
     "description": "This course offers a comprehensive exploration of aerodynamics, focusing on the principles and applications of airflow and its effects on flying objects.",
-    "imgSrc": "/images/aerodynamics.jpg"
+    "image": "/images/aerodynamics.jpg"
   },
   {
     "_id": "RS103",
@@ -30,7 +30,7 @@
     "department": "D123",
     "credits": 4,
     "description": "This course delves into the principles and practices of spacecraft design, offering students a detailed understanding of the engineering and technology behind spacecraft systems.",
-    "imgSrc": "/images/spacecraft.jpg"
+    "image": "/images/spacecraft.jpg"
   },
   {
     "_id": "RS104",
@@ -41,7 +41,7 @@
     "department": "D134",
     "credits": 3,
     "description": "Organic Chemistry is an in-depth course that explores the structure, properties, composition, and reactions of organic compounds and materials.",
-    "imgSrc": "/images/organic_chemistry.jpg"
+    "image": "/images/organic_chemistry.jpg"
   },
   {
     "_id": "RS105",
@@ -52,7 +52,7 @@
     "department": "D134",
     "credits": 3,
     "description": "Inorganic Chemistry focuses on the properties, structures, and behaviors of inorganic and organometallic compounds.",
-    "imgSrc": "/images/inorganic_chemistry.jpg"
+    "image": "/images/inorganic_chemistry.jpg"
   },
   {
     "_id": "RS106",
@@ -63,7 +63,7 @@
     "department": "D134",
     "credits": 3,
     "description": "Physical Chemistry merges the principles of physics and chemistry to understand the physical properties of molecules, the forces that act upon them, and the chemical reactions they undergo.",
-    "imgSrc": "/images/physical_chemistry.jpg"
+    "image": "/images/physical_chemistry.jpg"
   },
   {
     "_id": "RS107",
@@ -74,7 +74,7 @@
     "department": "Languages",
     "credits": 3,
     "description": "This course offers an exploration of the ancient languages and scripts found throughout Middle-earth, including Elvish (Sindarin and Quenya), Dwarvish (Khuzdul), and the Black Speech of Mordor.",
-    "imgSrc": "/images/middle_earth_languages.jpg"
+    "image": "/images/middle_earth_languages.jpg"
   },
   {
     "_id": "RS108",
@@ -85,7 +85,7 @@
     "department": "Political Studies",
     "credits": 4,
     "description": "This course explores the complex relationships and diplomatic interactions among the different races of Middle-earth: Elves, Men, Dwarves, and Wizards.",
-    "imgSrc": "/images/middle_earth_diplomacy.jpg"
+    "image": "/images/middle_earth_diplomacy.jpg"
   },
   {
     "_id": "RS109",
@@ -96,7 +96,7 @@
     "department": "Mystical Studies",
     "credits": 4,
     "description": "This course delves into the mystical and magical aspects of Middle-earth, examining the sources, practitioners, and manifestations of magic.",
-    "imgSrc": "/images/middle_earth_magic.jpg"
+    "image": "/images/middle_earth_magic.jpg"
   },
   {
     "_id": "RS110",
@@ -107,7 +107,7 @@
     "department": "Education",
     "credits": 3,
     "description": "This course examines the foundations of democratic education, emphasizing the role of education in fostering civic responsibility, critical thinking, and social equality.",
-    "imgSrc": "/images/democratic_education.jpg"
+    "image": "/images/democratic_education.jpg"
   },
   {
     "_id": "RS111",
@@ -118,7 +118,7 @@
     "department": "History",
     "credits": 4,
     "description": "This course provides an in-depth analysis of the philosophical underpinnings of independence and liberation movements, with a focus on Latin American history.",
-    "imgSrc": "/images/philosophy_of_independence.jpg"
+    "image": "/images/philosophy_of_independence.jpg"
   },
   {
     "_id": "RS112",
@@ -129,7 +129,7 @@
     "department": "Education",
     "credits": 3,
     "description": "Focusing on the early 19th century, this course explores innovative educational practices and theories of the time.",
-    "imgSrc": "/images/early_education_innovations.jpg"
+    "image": "/images/early_education_innovations.jpg"
   },
   {
     "_id": "RS113",
@@ -140,7 +140,7 @@
     "department": "Theology",
     "credits": 3,
     "description": "This course explores the core principles of Christian ethics as derived from biblical texts and theological traditions.",
-    "imgSrc": "/images/christian_ethics.jpg"
+    "image": "/images/christian_ethics.jpg"
   },
   {
     "_id": "RS114",
@@ -151,7 +151,7 @@
     "department": "History",
     "credits": 4,
     "description": "This course delves into the development of early Christian communities and the Apostolic Age.",
-    "imgSrc": "/images/apostolic_age.jpg"
+    "image": "/images/apostolic_age.jpg"
   },
   {
     "_id": "RS115",
@@ -162,7 +162,7 @@
     "department": "Ministry",
     "credits": 3,
     "description": "This course offers insights into effective leadership and service within Christian communities.",
-    "imgSrc": "/images/christian_leadership.jpg"
+    "image": "/images/christian_leadership.jpg"
   },
   {
     "_id": "RS116",
@@ -173,7 +173,7 @@
     "department": "Islamic Studies",
     "credits": 3,
     "description": "This course delves into the rich and profound world of Sufism, exploring its philosophical underpinnings, mystical practices, and historical development.",
-    "imgSrc": "/images/sufi_philosophy.jpg"
+    "image": "/images/sufi_philosophy.jpg"
   },
   {
     "_id": "RS117",
@@ -184,7 +184,7 @@
     "department": "Islamic Ethics",
     "credits": 3,
     "description": "Focusing on the ethical dimensions of Islam, this course examines the moral teachings and wisdom found in the Quran and Hadith.",
-    "imgSrc": "/images/islamic_ethics.jpg"
+    "image": "/images/islamic_ethics.jpg"
   },
   {
     "_id": "RS118",
@@ -195,7 +195,7 @@
     "department": "Islamic Mysticism",
     "credits": 4,
     "description": "This advanced course explores the esoteric aspects of Islam, delving into topics such as the nature of the unseen world and spiritual symbolism in Islamic texts.",
-    "imgSrc": "/images/islamic_esotericism.jpg"
+    "image": "/images/islamic_esotericism.jpg"
   },
   {
     "_id": "RS119",
@@ -206,7 +206,7 @@
     "department": "Environmental Studies",
     "credits": 3,
     "description": "This course explores the principles and practices of environmental management in ancient China, with a focus on the legendary achievements of Yu the Great.",
-    "imgSrc": "/images/chinese_environmental_management.jpg"
+    "image": "/images/chinese_environmental_management.jpg"
   },
   {
     "_id": "RS120",
@@ -217,7 +217,7 @@
     "department": "Management Studies",
     "credits": 4,
     "description": "Drawing on stories from Chinese mythology and history, this course examines the qualities and actions of effective leaders, using Yu the Great as a central figure.",
-    "imgSrc": "/images/chinese_leadership.jpg"
+    "image": "/images/chinese_leadership.jpg"
   },
   {
     "_id": "RS121",
@@ -228,7 +228,7 @@
     "department": "Engineering",
     "credits": 4,
     "description": "This engineering course offers an in-depth study of hydraulic projects in ancient civilizations, with a special focus on Yu the Great's flood control systems.",
-    "imgSrc": "/images/hydraulic_engineering.jpg"
+    "image": "/images/hydraulic_engineering.jpg"
   }
 ]
 

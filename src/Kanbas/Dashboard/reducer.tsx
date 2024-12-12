@@ -1,47 +1,27 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { enrollments as initialDatabaseEnrollments} from "../Database"  // 假设 enrollments 初始数据在 Database 中
-
-const loadEnrollments = () => {
-    const savedEnrollments = localStorage.getItem("enrollments");
-    const localEnrollments = savedEnrollments ? JSON.parse(savedEnrollments) : [];
-    const mergedEnrollments = [...initialDatabaseEnrollments, ...localEnrollments];
-    console.log("Loaded enrollments:", mergedEnrollments);
-    return mergedEnrollments;
-  };
-  
-  const saveEnrollments = (enrollments:any) => {
-    localStorage.setItem("enrollments", JSON.stringify(enrollments));
-  };
-
+import { enrollments } from "../Database";
 
 const initialState = {
-  enrollments: loadEnrollments(),
+  enrollments: enrollments,
 };
-
 const enrollmentsSlice = createSlice({
   name: "enrollments",
   initialState,
   reducers: {
-    enrollCourse: (state, { payload: 
-        { userId, courseId } }) => {
-      const newEnrollment = {
+    addEnrollment: (state, { payload: enrollment }) => {
+      const newEnrollment: any = {
         _id: new Date().getTime().toString(),
-        user: userId,
-        course: courseId,
+        ...enrollment,
       };
-      state.enrollments.push(newEnrollment);
-      saveEnrollments(state.enrollments);
+      state.enrollments = [...state.enrollments, newEnrollment] as any;
     },
-    unenrollCourse: (state, { payload: { userId, courseId } }) => {
+    deleteEnrollment: (state, { payload: unenrollment }) => {
       state.enrollments = state.enrollments.filter(
-        (enrollment:any) =>
-          !(enrollment.user === userId && enrollment.course === courseId)
+        (e: any) =>
+          !(e.course === unenrollment.course && e.user === unenrollment.user)
       );
-      saveEnrollments(state.enrollments);
     },
   },
 });
-
-export const { enrollCourse, unenrollCourse } = enrollmentsSlice.actions;
-
+export const { addEnrollment, deleteEnrollment } = enrollmentsSlice.actions;
 export default enrollmentsSlice.reducer;
