@@ -1,5 +1,5 @@
 import axios from "axios";
-
+export const REMOTE_SERVER = process.env.REACT_APP_REMOTE_SERVER
 const ENROLLMENTS_API = `${process.env.REACT_APP_REMOTE_SERVER}/api/enrollments`;
 
 export const enrollCourse = async (userId: any, courseId: any) => {
