@@ -1,10 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
 import { setCurrentUser } from "./reducer";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import * as client from "./client";
-
-
 
 export default function Profile() {
   const [profile, setProfile] = useState<any>({});
