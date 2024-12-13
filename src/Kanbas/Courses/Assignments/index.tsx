@@ -144,7 +144,6 @@ export default function Assignments() {
                   </li>
                 ))}
 
-
               {/* <li className="wd-assignment-list-item list-group-item p-4 border-bottom">
                                 <div className="d-flex align-items-center">
                                     <div className="d-flex align-items-center flex-nowrap me-3">
