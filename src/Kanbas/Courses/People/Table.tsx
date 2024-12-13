@@ -1,12 +1,13 @@
-import React from "react";
-import { FaUserCircle } from "react-icons/fa"; // 导入图标
+import { FaUserCircle } from "react-icons/fa";
 import PeopleDetails from "./Details";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-
+// import { useParams } from "react-router-dom";
+// import * as db from "../../Database";
 
 export default function PeopleTable({ users = [] }: { users?: any[] }) {
-
+  // const { cid } = useParams();
+  // const { users, enrollments } = db;
   const { currentUser } = useSelector((state: any) => state.accountReducer);
 
   return (
@@ -28,7 +29,7 @@ export default function PeopleTable({ users = [] }: { users?: any[] }) {
             <tr key={user._id}>
               <td className="wd-full-name text-nowrap">
                 {currentUser.role === "ADMIN" ? (
-                  
+                  // Case 1: ADMIN - Link to user details
                   <Link
                     to={`/Kanbas/Account/Users/${user._id}`}
                     className="text-decoration-none"
@@ -38,7 +39,7 @@ export default function PeopleTable({ users = [] }: { users?: any[] }) {
                     <span className="wd-last-name">{user.lastName}</span>
                   </Link>
                 ) : (
-                  
+                  // Case 2: Non-ADMIN - Plain text
                   <>
                     <FaUserCircle className="me-2 fs-1 text-secondary" />
                     <span className="wd-first-name">{user.firstName}</span>{" "}
