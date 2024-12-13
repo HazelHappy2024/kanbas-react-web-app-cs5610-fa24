@@ -6,6 +6,8 @@ const COURSES_API = `${REMOTE_SERVER}/api/courses`;
 
 const axiosWithCredentials = axios.create({ withCredentials: true });
 
+
+
 export const fetchAllCourses = async () => {
   const { data } = await axiosWithCredentials.get(COURSES_API);
   return data;

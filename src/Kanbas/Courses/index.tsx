@@ -14,7 +14,7 @@ export default function Courses({ courses }: { courses: any[] }) {
   const course = courses.find((course) => course._id === cid);
   const { pathname } = useLocation();
 
-  const [users, setUsers] = useState<any[]>([]); // State to store users
+  const [users, setUsers] = useState<any[]>([]); 
 
   useEffect(() => {
     const fetchUsers = async () => {
