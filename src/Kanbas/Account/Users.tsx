@@ -1,41 +1,14 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router";
 import PeopleTable from "../Courses/People/Table";
 import * as client from "./client";
-import { FaPlus } from "react-icons/fa";
-import { useParams } from "react-router";
+import { FaPlus } from "react-icons/fa6";
 
 export default function Users() {
-  const { uid } = useParams();
   const [users, setUsers] = useState<any[]>([]);
+  const { uid } = useParams();
   const [role, setRole] = useState("");
   const [name, setName] = useState("");
-
-  const fetchUsers = async () => {
-    const allUsers = await client.findAllUsers();
-    setUsers(allUsers);
-  };
-
-  const filterUsers = async (updatedRole: string, updatedName: string) => {
-    if (!updatedRole && !updatedName) {
-      fetchUsers();
-    } else {
-      const filteredUsers = await client.findUsersByFilters(
-        updatedRole,
-        updatedName
-      );
-      setUsers(filteredUsers);
-    }
-  };
-
-  const handleFilterChange = (newRole: string, newName: string) => {
-    setRole(newRole);
-    setName(newName);
-    filterUsers(newRole, newName);
-  };
-
-  useEffect(() => {
-    fetchUsers();
-  }, []);
 
   const createUser = async () => {
     const user = await client.createUser({
@@ -50,41 +23,61 @@ export default function Users() {
     setUsers([...users, user]);
   };
 
+  const filterUsersByName = async (name: string) => {
+    setName(name);
+    if (name) {
+      const users = await client.findUsersByPartialName(name);
+      setUsers(users);
+    } else {
+      fetchUsers();
+    }
+  };
+
+  const filterUsersByRole = async (role: string) => {
+    setRole(role);
+    if (role) {
+      const users = await client.findUsersByRole(role);
+      setUsers(users);
+    } else {
+      fetchUsers();
+    }
+  };
+
+  
+  const fetchUsers = async () => {
+    const users = await client.findAllUsers();
+    setUsers(users);
+  };
+  useEffect(() => {
+    fetchUsers();
+  }, [uid]);
+
   return (
     <div>
+      <button
+        onClick={createUser}
+        className="float-end btn btn-danger wd-add-people"
+      >
+        <FaPlus className="me-2" />
+        Users
+      </button>
       <h3>Users</h3>
-      <div style={{ display: "flex", gap: "1rem" }}>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => handleFilterChange(role, e.target.value)}
-          placeholder="Search by name"
-          className="form-control"
-          style={{ flex: 1 }} // Adjust width as needed
-        />
-
-        <select
-          value={role}
-          onChange={(e) => handleFilterChange(e.target.value, name)}
-          className="form-select"
-          style={{ flex: 1 }} // Adjust width as needed
-        >
-          <option value="">All Roles</option>
-          <option value="STUDENT">Students</option>
-          <option value="TA">Assistants</option>
-          <option value="FACULTY">Faculty</option>
-          <option value="ADMIN">Administrators</option>
-        </select>
-
-        <button
-          onClick={createUser}
-          className="float-end btn btn-danger wd-add-people"
-        >
-          <FaPlus className="me-2" />
-          Users
-        </button>
-      </div>
-
+      <input
+        onChange={(e) => filterUsersByName(e.target.value)}
+        placeholder="Search people"
+        className="form-control float-start w-25 me-2 wd-filter-by-name"
+      />
+      <select
+        value={role}
+        onChange={(e) => filterUsersByRole(e.target.value)}
+        className="form-select float-start w-25 wd-select-role"
+      >
+        <option value="">All Roles</option>{" "}
+        <option value="STUDENT">Students</option>
+        <option value="TA">Assistants</option>{" "}
+        <option value="FACULTY">Faculty</option>
+        <option value="ADMIN">Administrators</option>
+      </select>
       <PeopleTable users={users} />
     </div>
   );
